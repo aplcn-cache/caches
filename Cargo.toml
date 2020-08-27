@@ -1,0 +1,16 @@
+[package]
+name = "aplcn"
+version = "0.1.0"
+authors = ["John Meow <j0hn.meow@ya.ru>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+handlebars = "3.4"
+serde_json = "1.0"
+anyhow = "1.0"
+percent-encoding = "2.1"
+structopt = "0.3.17"
+structopt-derive = "0.4.10"
+dialoguer = "0.6"
