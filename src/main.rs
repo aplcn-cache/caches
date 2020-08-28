@@ -66,7 +66,7 @@ fn main() -> Result<()> {
     let tag_name = name
         .to_lowercase()
         .replace(char::is_whitespace, "-")
-        .replace(|c: char| c != '-' && !c.is_ascii_alphanumeric(), "");
+        .replace(|c: char| c != '-' && !c.is_alphanumeric(), "");
     println!(
         "{}",
         reg.render_template(
@@ -74,8 +74,8 @@ fn main() -> Result<()> {
             &json!({
                 "file_url": format!(
                 "https://github.com/aplcn-cache/caches/releases/download/{release}/{file}.imazingapp",
-                    file=name,
-                    release=tag_name),
+                    file=percent_encode(name.as_bytes(), NON_ALPHANUMERIC),
+                    release=percent_encode(tag_name.as_bytes(), NON_ALPHANUMERIC)),
                 "tags": tags,
                 "appstore": appstore,
                 "release_name": tag_name,
